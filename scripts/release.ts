@@ -54,7 +54,7 @@ async function main() {
   step('Generating changelog...')
   await run('conventional-changelog', ['-p', 'angular', '-i', 'CHANGELOG.md', '-s'])
 
-  const { changelog }: { changelog: string } = await prompts({
+  const { changelog }: { changelog: boolean } = await prompts({
     type: 'confirm',
     name: 'changelog',
     message: 'Commit changelog?'
