@@ -1,0 +1,46 @@
+{
+  "name": "@globalbrain/eslint-config",
+  "version": "0.1.0",
+  "packageManager": "pnpm@7.12.2",
+  "description": "The Global Brain ESLint Config.",
+  "author": "Kia Ishii <ka.ishii@globalbrains.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:globalbrain/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/globalbrain/eslint-config/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslint config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint . --fix",
+    "release": "tsx scripts/release.ts"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=4.5.5"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "0.27.0"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.0.14",
+    "@types/semver": "^7.3.12",
+    "conventional-changelog-cli": "^2.2.2",
+    "eslint": "^8.24.0",
+    "execa": "^6.1.0",
+    "picocolors": "^1.0.0",
+    "prompts": "^2.4.2",
+    "semver": "^7.3.7",
+    "tsx": "^3.9.0",
+    "typescript": "^4.8.3"
+  }
+}
