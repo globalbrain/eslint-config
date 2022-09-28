@@ -48,6 +48,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
 
     'vue/attributes-order': 'off',
+    'vue/comma-dangle': ['error', 'never'],
     'vue/custom-event-name-casing': ['error', 'kebab-case'],
     'vue/define-macros-order': 'off',
     'vue/html-closing-bracket-newline': 'off',
