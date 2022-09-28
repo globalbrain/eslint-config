@@ -14,7 +14,7 @@ pnpm add -D @globalbrain/eslint-config
 
 ```json5
 {
-  "extends": ["@globalbrain"],
+  "extends": "@globalbrain",
 
   "rules": {
     // overrides
