@@ -33,7 +33,7 @@ pnpm add -D @globalbrain/eslint-config
 }
 ```
 
-> `--ignore-path` is not required as it is configured extensively by [ignorePattern](https://github.com/antfu/eslint-config/blob/main/packages/basic/index.js#L16). Use `--ext` sparingly if you want to narrow coverage.
+> `--ignore-path` is not required as it is configured extensively by [ignorePattern](https://github.com/antfu/eslint-config/blob/main/packages/basic/index.js#L16).
 
 ## License
 
