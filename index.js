@@ -49,6 +49,7 @@ module.exports = {
 
     'vue/attributes-order': 'off',
     'vue/comma-dangle': ['error', 'never'],
+    'vue/component-name-in-template-casing': ['warn', 'PascalCase'],
     'vue/custom-event-name-casing': ['error', 'kebab-case'],
     'vue/define-macros-order': 'off',
     'vue/html-closing-bracket-newline': 'off',
