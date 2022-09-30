@@ -7,7 +7,7 @@ This package provides the Global Brain eslint preset as an extensible shared con
 ### Install
 
 ```bash
-pnpm add -D @globalbrain/eslint-config
+pnpm add -D eslint @globalbrain/eslint-config
 ```
 
 ### Configure `.eslintrc.json`
