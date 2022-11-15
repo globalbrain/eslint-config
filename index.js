@@ -41,6 +41,7 @@ module.exports = {
     }],
     'no-cond-assign': 'off',
 
+    '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/consistent-type-imports': ['error', {
       prefer: 'no-type-imports'
