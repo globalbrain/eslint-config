@@ -29,8 +29,7 @@ async function main() {
       initial: currentVersion
     })
     targetVersion = res.version
-  }
-  else {
+  } else {
     targetVersion = release
   }
 
@@ -69,8 +68,7 @@ async function main() {
     step('Committing changes...')
     await run('git', ['add', '-A'])
     await run('git', ['commit', '-m', `release: v${targetVersion}`])
-  }
-  else {
+  } else {
     console.log('No changes to commit.')
     return
   }
