@@ -41,14 +41,19 @@ module.exports = {
     }],
     'no-cond-assign': 'off',
 
-    '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    '@typescript-eslint/brace-style': ['error', '1tbs', {
+      allowSingleLine: true
+    }],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
-    '@typescript-eslint/consistent-type-definitions': ['off'],
+    '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/consistent-type-imports': ['error', {
       prefer: 'no-type-imports'
     }],
     '@typescript-eslint/no-empty-interface': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unused-vars': ['error', {
+      argsIgnorePattern: '^_',
+      destructuredArrayIgnorePattern: '^_'
+    }],
     '@typescript-eslint/no-use-before-define': 'off',
 
     'vue/attributes-order': 'off',
