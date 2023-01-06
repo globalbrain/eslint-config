@@ -48,6 +48,8 @@ module.exports = {
       prefer: 'no-type-imports'
     }],
     '@typescript-eslint/no-empty-interface': 'off',
+    'no-unused-vars': ['off'],
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' }],
     '@typescript-eslint/no-use-before-define': 'off',
 
     'vue/attributes-order': 'off',
