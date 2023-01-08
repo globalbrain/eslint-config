@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/globalbrain/eslint-config/compare/v1.2.0...v1.2.1) (2023-01-08)
+
+### Bug Fixes
+
+* "max statements per line" rule is some how applied ([5d6178e](https://github.com/globalbrain/eslint-config/commit/5d6178e21d0e6519a42ef7f15a27e671507a9655))
+
 # [1.2.0](https://github.com/globalbrain/eslint-config/compare/v1.1.0...v1.2.0) (2023-01-08)
 
 ### Features
