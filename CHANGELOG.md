@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/globalbrain/eslint-config/compare/v1.1.0...v1.2.0) (2023-01-08)
+
+### Features
+
+* add typescript rules ([#8](https://github.com/globalbrain/eslint-config/issues/8)) ([ba97269](https://github.com/globalbrain/eslint-config/commit/ba97269c44dd402c251b9319fe389d0e00beef13))
+
 # [1.1.0](https://github.com/globalbrain/eslint-config/compare/v1.0.0...v1.1.0) (2022-11-22)
 
 ### Features
