@@ -39,6 +39,7 @@ module.exports = {
       capIsNew: false,
       properties: true
     }],
+    'max-statements-per-line': 'off',
     'no-cond-assign': 'off',
 
     '@typescript-eslint/brace-style': ['error', '1tbs', {
