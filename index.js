@@ -47,9 +47,6 @@ module.exports = {
     }],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/consistent-type-definitions': 'off',
-    '@typescript-eslint/consistent-type-imports': ['error', {
-      prefer: 'no-type-imports'
-    }],
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-unused-vars': ['error', {
       argsIgnorePattern: '^_',
