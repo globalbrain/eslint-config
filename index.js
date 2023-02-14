@@ -14,6 +14,10 @@ module.exports = {
       ],
       pathGroups: [
         {
+          pattern: '#+(imports|app)',
+          group: 'external'
+        },
+        {
           pattern: '@/composables/**',
           group: 'parent',
           position: 'before'
