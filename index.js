@@ -14,7 +14,7 @@ module.exports = {
       ],
       pathGroups: [
         {
-          pattern: '#+(imports|app)',
+          pattern: '#*',
           group: 'external'
         },
         {
