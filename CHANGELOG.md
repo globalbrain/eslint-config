@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/globalbrain/eslint-config/compare/v1.2.1...v1.3.0) (2023-02-17)
+
+### Features
+
+* add import order for nuxt paths ([#14](https://github.com/globalbrain/eslint-config/issues/14)) ([8ea0139](https://github.com/globalbrain/eslint-config/commit/8ea013994fbc8998d93bc43a6ee86028bda1b903))
+* remove `consistent-type-imports` preference ([#12](https://github.com/globalbrain/eslint-config/issues/12)) ([#15](https://github.com/globalbrain/eslint-config/issues/15)) ([482a51c](https://github.com/globalbrain/eslint-config/commit/482a51c2058dc70f61bc4b90841b15d0522bb3f6))
+
 ## [1.2.1](https://github.com/globalbrain/eslint-config/compare/v1.2.0...v1.2.1) (2023-01-08)
 
 ### Bug Fixes
