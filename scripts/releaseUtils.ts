@@ -1,10 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import type { Options as ExecaOptions, ExecaReturnValue } from 'execa'
-import { execa } from 'execa'
+import { type Options as ExecaOptions, type ExecaReturnValue, execa } from 'execa'
 import colors from 'picocolors'
-import type { ReleaseType } from 'semver'
-import semver from 'semver'
+import semver, { type ReleaseType } from 'semver'
 
 export const versionIncrements: ReleaseType[] = [
   'patch',
@@ -17,6 +15,7 @@ interface Pkg {
   version: string
   private?: boolean
 }
+
 export function getPackageInfo(): {
   pkg: Pkg
   pkgPath: string
