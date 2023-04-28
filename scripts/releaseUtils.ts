@@ -13,7 +13,6 @@ export const versionIncrements: ReleaseType[] = [
 interface Pkg {
   name: string
   version: string
-  private?: boolean
 }
 
 export function getPackageInfo(): {
@@ -22,11 +21,7 @@ export function getPackageInfo(): {
   currentVersion: string
 } {
   const pkgPath = path.resolve(__dirname, '../package.json')
-  const pkg: Pkg = require(pkgPath)
-
-  if (pkg.private) {
-    throw new Error('Package is private')
-  }
+  const pkg = loadPackage(pkgPath)
 
   return {
     pkg,
@@ -62,9 +57,13 @@ export function getVersionChoices(version: string, tag?: string): {
 }
 
 export function updateVersion(pkgPath: string, version: string): void {
-  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+  const pkg = loadPackage(pkgPath)
 
   pkg.version = version
 
   return fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
+}
+
+function loadPackage(path: string): Pkg {
+  return JSON.parse(fs.readFileSync(path, 'utf-8'))
 }
