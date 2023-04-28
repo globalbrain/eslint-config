@@ -1,3 +1,9 @@
+# [1.5.0](https://github.com/globalbrain/eslint-config/compare/v1.3.0...v1.5.0) (2023-04-28)
+
+### Features
+
+* enforce consistent inline type imports ([#18](https://github.com/globalbrain/eslint-config/issues/18)) ([#19](https://github.com/globalbrain/eslint-config/issues/19)) ([57b4705](https://github.com/globalbrain/eslint-config/commit/57b47055ca881afa4b211d9fb77b6f944c41671a))
+
 # [1.4.0](https://github.com/globalbrain/eslint-config/compare/v1.3.0...v1.4.0) (2023-04-18)
 
 ### Features
