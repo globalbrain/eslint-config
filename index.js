@@ -3,6 +3,13 @@ module.exports = {
   rules: {
     'arrow-parens': ['error', 'always'],
     'curly': ['error', 'all'],
+    'max-statements-per-line': 'off',
+    'no-cond-assign': 'off',
+
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
+    'import/no-duplicates': ['error', {
+      'prefer-inline': true
+    }],
     'import/order': ['error', {
       groups: [
         'builtin',
@@ -43,14 +50,17 @@ module.exports = {
       capIsNew: false,
       properties: true
     }],
-    'max-statements-per-line': 'off',
-    'no-cond-assign': 'off',
 
     '@typescript-eslint/brace-style': ['error', '1tbs', {
       allowSingleLine: true
     }],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/consistent-type-imports': ['error', {
+      prefer: 'type-imports',
+      disallowTypeAnnotations: false,
+      fixStyle: 'inline-type-imports'
+    }],
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-unused-vars': ['error', {
       argsIgnorePattern: '^_',
