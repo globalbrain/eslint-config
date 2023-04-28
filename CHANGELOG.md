@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/globalbrain/eslint-config/compare/v1.3.0...v1.4.0) (2023-04-18)
+
+### Features
+
+* update npm packages that adds several new rules ([#17](https://github.com/globalbrain/eslint-config/pull/17))
+
 # [1.3.0](https://github.com/globalbrain/eslint-config/compare/v1.2.1...v1.3.0) (2023-02-17)
 
 ### Features
