@@ -1,7 +1,7 @@
 {
   "name": "@globalbrain/eslint-config",
-  "version": "1.5.0",
-  "packageManager": "pnpm@8.3.1",
+  "version": "1.5.1",
+  "packageManager": "pnpm@8.6.3",
   "description": "The Global Brain ESLint Config.",
   "author": "Kia Ishii <ka.ishii@globalbrains.com>",
   "license": "MIT",
@@ -28,18 +28,18 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "0.38.5"
+    "@antfu/eslint-config": "0.39.5"
   },
   "devDependencies": {
     "@types/prompts": "^2.4.4",
-    "@types/semver": "^7.3.13",
-    "conventional-changelog-cli": "^2.2.2",
-    "eslint": "^8.39.0",
+    "@types/semver": "^7.5.0",
+    "conventional-changelog-cli": "^3.0.0",
+    "eslint": "^8.43.0",
     "execa": "^7.1.1",
     "picocolors": "^1.0.0",
     "prompts": "^2.4.2",
-    "semver": "^7.5.0",
-    "tsx": "^3.12.6",
-    "typescript": "^5.0.4"
+    "semver": "^7.5.2",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.3"
   }
 }
