@@ -50,6 +50,7 @@ module.exports = {
       capIsNew: false,
       properties: true
     }],
+    'n/prefer-global/process': 'off',
 
     '@typescript-eslint/brace-style': ['error', '1tbs', {
       allowSingleLine: true
