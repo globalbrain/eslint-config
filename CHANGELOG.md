@@ -1,3 +1,9 @@
+## [1.5.2](https://github.com/globalbrain/eslint-config/compare/v1.5.1...v1.5.2) (2023-09-06)
+
+### Bug Fixes
+
+* **vue:** allow v-bind string escaping ([#24](https://github.com/globalbrain/eslint-config/issues/24)) ([#26](https://github.com/globalbrain/eslint-config/issues/26)) ([1e8e9fc](https://github.com/globalbrain/eslint-config/commit/1e8e9fc36707505f7665b6073d3c4aabf6f97507))
+
 ## [1.5.1](https://github.com/globalbrain/eslint-config/compare/v1.5.0...v1.5.1) (2023-06-20)
 
 ### Bug Fixes

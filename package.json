@@ -1,6 +1,6 @@
 {
   "name": "@globalbrain/eslint-config",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "packageManager": "pnpm@8.7.1",
   "description": "The Global Brain ESLint Config.",
   "author": "Kia Ishii <ka.ishii@globalbrains.com>",
