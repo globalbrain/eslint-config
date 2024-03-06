@@ -12,7 +12,7 @@ pnpm add -D eslint @globalbrain/eslint-config
 
 ### Configuration
 
-`.eslintrc`
+#### `.eslintrc`
 
 ```json5
 {
@@ -20,7 +20,7 @@ pnpm add -D eslint @globalbrain/eslint-config
 }
 ```
 
-`package.json`
+#### `package.json`
 
 ```json5
 {
