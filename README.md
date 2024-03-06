@@ -10,19 +10,17 @@ This package provides the Global Brain eslint preset as an extensible shared con
 pnpm add -D eslint @globalbrain/eslint-config
 ```
 
-### Configure `.eslintrc.json`
+### Configuration
+
+#### `.eslintrc`
 
 ```json5
 {
-  "extends": "@globalbrain",
-
-  "rules": {
-    // overrides
-  }
+  "extends": "@globalbrain"
 }
 ```
 
-### Configure `package.json`
+#### `package.json`
 
 ```json5
 {
@@ -33,8 +31,6 @@ pnpm add -D eslint @globalbrain/eslint-config
 }
 ```
 
-> `--ignore-path` is not required as it is configured extensively by [ignorePattern](https://github.com/antfu/eslint-config/blob/main/packages/basic/index.js#L16).
-
 ## License
 
-This package is open-sourced software licensed under the [MIT license](LICENSE.md).
+This package is open-sourced software licensed under the [MIT license](./LICENSE).
