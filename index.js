@@ -75,6 +75,8 @@ module.exports = {
     'vue/custom-event-name-casing': ['error', 'kebab-case'],
     'vue/define-macros-order': 'off',
     'vue/html-closing-bracket-newline': 'off',
+    'vue/no-extra-parens': 'off',
+    'vue/no-multiple-template-root': 'error',
     'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
     'vue/no-v-text-v-html-on-component': 'off',
     'vue/singleline-html-element-content-newline': 'off'
