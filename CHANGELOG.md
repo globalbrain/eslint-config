@@ -1,3 +1,12 @@
+
+
+# [1.6.0](https://github.com/globalbrain/eslint-config/compare/v1.5.2...v1.6.0) (2024-03-27)
+
+
+### Features
+
+* disable `vue/no-extra-parens` ([#33](https://github.com/globalbrain/eslint-config/issues/33)) ([e86f08a](https://github.com/globalbrain/eslint-config/commit/e86f08a36351401e12f61d7819f22aaa3a4ddb73))
+
 ## [1.5.2](https://github.com/globalbrain/eslint-config/compare/v1.5.1...v1.5.2) (2023-09-06)
 
 ### Bug Fixes
