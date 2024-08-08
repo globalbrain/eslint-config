@@ -1,5 +1,12 @@
 
 
+## [1.7.1](https://github.com/globalbrain/eslint-config/compare/v1.7.0...v1.7.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* move imports beginning with tilde to very top ([a5060ae](https://github.com/globalbrain/eslint-config/commit/a5060aee875e2fc794a5a569b66a02cac741b57a))
+
 # [1.7.0](https://github.com/globalbrain/eslint-config/compare/v1.6.0...v1.7.0) (2024-08-08)
 
 
