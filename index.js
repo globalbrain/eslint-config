@@ -26,7 +26,8 @@ module.exports = {
         },
         {
           pattern: '~*/**',
-          group: 'external'
+          group: 'external',
+          position: 'before'
         },
         {
           pattern: '@/composables/**',
