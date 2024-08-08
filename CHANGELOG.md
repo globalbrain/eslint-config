@@ -1,5 +1,12 @@
 
 
+# [1.7.0](https://github.com/globalbrain/eslint-config/compare/v1.6.0...v1.7.0) (2024-08-08)
+
+
+### Features
+
+* group imports beginning with tilde with externals ([#36](https://github.com/globalbrain/eslint-config/issues/36)) ([79512d4](https://github.com/globalbrain/eslint-config/commit/79512d45b2453abd570db23bf0c7bedcecd2fcfa))
+
 # [1.6.0](https://github.com/globalbrain/eslint-config/compare/v1.5.2...v1.6.0) (2024-03-27)
 
 
