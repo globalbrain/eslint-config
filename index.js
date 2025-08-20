@@ -10,7 +10,7 @@ export default function globalbrain(...userConfigs) {
   return (
     antfu(
       {
-        // type: 'lib' only adds [one rule](https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/typescript.ts#L165-L173),
+        // `type: 'lib'` only adds [one rule](https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/typescript.ts#L165-L173),
         // as our projects are mostly apps, we can just use the default app config,
         // and either provide a separate config for lib projects,
         // or manually enable the rule in the projects if needed
@@ -21,7 +21,7 @@ export default function globalbrain(...userConfigs) {
         typescript: true,
         vue: true,
 
-        // we are more conservative on curly braces
+        // We are more conservative on curly braces
         // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
         lessOpinionated: true
       },
@@ -84,14 +84,14 @@ export default function globalbrain(...userConfigs) {
       .override('antfu/perfectionist/setup', {
         settings: {
           perfectionist: {
-            // perfectionist uses `localeCompare` to sort characters by default,
+            // Perfectionist uses `localeCompare` to sort characters by default,
             // which is different from the default `sort` behavior we used to have.
             // So we need to set a custom alphabet to sort characters by their char code.
             // Note: this freezes the @eslint/config-inspector page when expanding the `perfectionist` settings,
             // as it generates too many characters.
             alphabet: Alphabet.generateRecommendedAlphabet()
               .sortByCharCodeAt()
-              // nested imports come before the parent imports,
+              // Nested imports come before the parent imports,
               // i.e. `@/components/foo/nested.vue` before `@/components/foo.vue`
               // TODO: do we really need this?
               .placeCharacterBefore({ characterBefore: '/', characterAfter: '.' })
@@ -120,9 +120,9 @@ export default function globalbrain(...userConfigs) {
                 'sibling',
                 'index'
               ],
-              // the default is `['^~/.+', '^@/.+']`
-              // But we wan to group `~*/** */` before other external imports,
-              // and `@/** */` after normal internal imports.
+              // The default is `['^~/.+', '^@/.+']`
+              // But we want to group `~*/** */` before other external imports,
+              // and `@/**/*` after normal internal imports.
               // So we need to reset it here.
               internalPattern: [],
 
