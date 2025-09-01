@@ -126,7 +126,8 @@ export default function globalbrain(...userConfigs) {
           'vue/define-macros-order': 'off',
           'vue/html-closing-bracket-newline': 'off',
           'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
-          'vue/singleline-html-element-content-newline': 'off'
+          'vue/singleline-html-element-content-newline': 'off',
+          'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }]
         }
       })
       .override('antfu/node/rules', {
