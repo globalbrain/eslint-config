@@ -173,10 +173,6 @@ export default function globalbrain(...userConfigs) {
           'ts/method-signature-style': 'off'
         }
       })
-      // Too many errors from the regexp plugin at the moment,
-      // but I think we should enable it.
-      // Most errors are auto-fixable.
-      .removePlugins('regexp')
       .append(...userConfigs)
   )
 }
