@@ -24,24 +24,10 @@ export default function globalbrain(...userConfigs) {
         // We are more conservative on curly braces
         // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
         lessOpinionated: true
-      },
-      {
-        rules: {
-          'max-statements-per-line': 'off'
-        }
       }
     )
       .override('antfu/javascript/rules', {
         rules: {
-          'no-cond-assign': 'off',
-          'new-cap': [
-            'error',
-            {
-              newIsCap: false,
-              capIsNew: false,
-              properties: true
-            }
-          ]
         }
       })
       .override('antfu/stylistic/rules', {
@@ -68,7 +54,6 @@ export default function globalbrain(...userConfigs) {
               fixStyle: 'inline-type-imports'
             }
           ],
-          'ts/no-empty-interface': 'off',
           // Can't enable this rule because it conflicts with our preference of inline type imports.
           'ts/no-import-type-side-effects': 'off',
           'ts/no-unused-vars': [
@@ -77,8 +62,7 @@ export default function globalbrain(...userConfigs) {
               argsIgnorePattern: '^_',
               destructuredArrayIgnorePattern: '^_'
             }
-          ],
-          'ts/no-use-before-define': 'off'
+          ]
         }
       })
       .override('antfu/perfectionist/setup', {
@@ -94,9 +78,9 @@ export default function globalbrain(...userConfigs) {
               // Nested imports come before the parent imports,
               // i.e. `@/components/foo/nested.vue` before `@/components/foo.vue`
               // TODO: do we really need this?
-              .placeCharacterBefore({ characterBefore: '/', characterAfter: '.' })
+              // .placeCharacterBefore({ characterBefore: '/', characterAfter: '.' })
               // `@/components/foo/nested.vue` comes before `@/components/foo-bar.vue`
-              .placeCharacterBefore({ characterBefore: '/', characterAfter: '-' })
+              // .placeCharacterBefore({ characterBefore: '/', characterAfter: '-' })
               .getCharacters()
           }
         },
@@ -121,7 +105,7 @@ export default function globalbrain(...userConfigs) {
                 'index'
               ],
               // The default is `['^~/.+', '^@/.+']`
-              // But we want to group `~*/** */` before other external imports,
+              // But we want to group `~*/** */` (unplugin-icons) before other external imports,
               // and `@/**/*` after normal internal imports.
               // So we need to reset it here.
               internalPattern: [],
@@ -134,10 +118,6 @@ export default function globalbrain(...userConfigs) {
                 {
                   groupName: 'parent-components',
                   elementNamePattern: '@/components/.*'
-                },
-                {
-                  groupName: 'parent-composables',
-                  elementNamePattern: '@/composables/.*'
                 },
                 {
                   groupName: 'aliased-internal',
@@ -156,15 +136,12 @@ export default function globalbrain(...userConfigs) {
       })
       .override('antfu/vue/rules', {
         rules: {
-          'vue/attributes-order': 'off',
           'vue/comma-dangle': ['error', 'never'],
-          'vue/component-name-in-template-casing': ['warn', 'PascalCase'],
+          'vue/component-name-in-template-casing': ['error', 'PascalCase'],
           'vue/custom-event-name-casing': ['error', 'kebab-case'],
           'vue/define-macros-order': 'off',
           'vue/html-closing-bracket-newline': 'off',
-          'vue/no-extra-parens': 'off',
           'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
-          'vue/no-v-text-v-html-on-component': 'off',
           'vue/singleline-html-element-content-newline': 'off'
         }
       })
@@ -207,17 +184,7 @@ export default function globalbrain(...userConfigs) {
         name: 'globalbrain/todo/new-rules-that-need-consensus',
         rules: {
           // Just new stylistic rules, mostly auto-fixable.
-          'antfu/consistent-list-newline': 'off',
           'style/max-statements-per-line': 'off',
-          'style/member-delimiter-style': 'off',
-          'style/operator-linebreak': 'off',
-
-          // Didn't have these in the past.
-          'jsonc/sort-array-values': 'off',
-          'jsonc/sort-keys': 'off',
-          'toml/indent': 'off',
-          'toml/array-bracket-spacing': 'off',
-
           // We have import sorting rules already,
           // do we need export sorting, too?
           'perfectionist/sort-exports': 'off',
@@ -225,9 +192,7 @@ export default function globalbrain(...userConfigs) {
 
           // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
           // A lot of violations in our codebase
-          'ts/method-signature-style': 'off',
-
-          'unicorn/new-for-builtins': 'off'
+          'ts/method-signature-style': 'off'
         }
       })
       // Too many errors from the regexp plugin at the moment,
