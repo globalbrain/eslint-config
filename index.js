@@ -26,10 +26,6 @@ export default function globalbrain(...userConfigs) {
         lessOpinionated: true
       }
     )
-      .override('antfu/javascript/rules', {
-        rules: {
-        }
-      })
       .override('antfu/stylistic/rules', {
         rules: {
           'style/arrow-parens': ['error', 'always'],
