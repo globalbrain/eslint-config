@@ -40,7 +40,9 @@ export default function globalbrain(...userConfigs) {
               allowSingleLine: true
             }
           ],
-          'style/comma-dangle': ['error', 'never']
+          'style/comma-dangle': ['error', 'never'],
+          // Conflicts with single-line if statements wrapped in curly braces
+          'style/max-statements-per-line': 'off'
         }
       })
       .override('antfu/typescript/rules', {
@@ -171,8 +173,6 @@ export default function globalbrain(...userConfigs) {
       .append({
         name: 'globalbrain/todo/new-rules-that-need-consensus',
         rules: {
-          // Just new stylistic rules, mostly auto-fixable.
-          'style/max-statements-per-line': 'off',
           // We have import sorting rules already,
           // do we need export sorting, too?
           'perfectionist/sort-exports': 'off',
