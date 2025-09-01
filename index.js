@@ -94,34 +94,22 @@ export default function globalbrain(...userConfigs) {
               groups: [
                 'builtin',
                 'subpath',
-                'aliased-external',
+                'unplugin-icons',
                 'external',
                 'internal',
-                'aliased-internal',
-                'parent-composables',
-                'parent-components',
                 'parent',
                 'sibling',
                 'index'
               ],
               // The default is `['^~/.+', '^@/.+']`
-              // But we want to group `~*/** */` (unplugin-icons) before other external imports,
-              // and `@/**/*` after normal internal imports.
-              // So we need to reset it here.
-              internalPattern: [],
+              // But we want to group `~icons/** */` (unplugin-icons) before other external imports,
+              // So we need to overwrite it here.
+              internalPattern: ['^@/.+'],
 
               customGroups: [
                 {
-                  groupName: 'aliased-external',
-                  elementNamePattern: '~.*/.*'
-                },
-                {
-                  groupName: 'parent-components',
-                  elementNamePattern: '@/components/.*'
-                },
-                {
-                  groupName: 'aliased-internal',
-                  elementNamePattern: '@/.*'
+                  groupName: 'unplugin-icons',
+                  elementNamePattern: '~icons/.*'
                 }
               ]
             }
