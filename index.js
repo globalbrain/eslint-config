@@ -77,12 +77,6 @@ export default function globalbrain(...userConfigs) {
             // as it generates too many characters.
             alphabet: Alphabet.generateRecommendedAlphabet()
               .sortByCharCodeAt()
-              // Nested imports come before the parent imports,
-              // i.e. `@/components/foo/nested.vue` before `@/components/foo.vue`
-              // TODO: do we really need this?
-              // .placeCharacterBefore({ characterBefore: '/', characterAfter: '.' })
-              // `@/components/foo/nested.vue` comes before `@/components/foo-bar.vue`
-              // .placeCharacterBefore({ characterBefore: '/', characterAfter: '-' })
               .getCharacters()
           }
         },
