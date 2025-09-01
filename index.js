@@ -165,9 +165,8 @@ export default function globalbrain(...userConfigs) {
         }
       })
       .append({
-        name: 'globalbrain/todo/new-rules-that-need-consensus',
+        name: 'globalbrain/too-hard-to-adopt-right-now',
         rules: {
-
           // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
           // A lot of violations in our codebase
           'ts/method-signature-style': 'off'
