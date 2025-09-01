@@ -173,10 +173,6 @@ export default function globalbrain(...userConfigs) {
       .append({
         name: 'globalbrain/todo/new-rules-that-need-consensus',
         rules: {
-          // We have import sorting rules already,
-          // do we need export sorting, too?
-          'perfectionist/sort-exports': 'off',
-          'perfectionist/sort-named-exports': 'off',
 
           // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
           // A lot of violations in our codebase
