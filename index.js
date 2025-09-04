@@ -16,10 +16,42 @@ export default function globalbrain(...userConfigs) {
         // or manually enable the rule in the projects if needed
 
         // TS/Vue features are auto-detected,
-        // but to avoid errors being thrown from our overrides,
-        // we need to explicitly enable them here.
-        typescript: true,
-        vue: true,
+        // So we cannot use `.override` to customize their rules (as the configs might not exist).
+        // We have to override them here.
+        typescript: {
+          overrides: {
+            'ts/consistent-type-definitions': 'off',
+            'ts/consistent-type-imports': [
+              'error',
+              {
+                prefer: 'type-imports',
+                disallowTypeAnnotations: false,
+                fixStyle: 'inline-type-imports'
+              }
+            ],
+            // Can't enable this rule because it conflicts with our preference of inline type imports.
+            'ts/no-import-type-side-effects': 'off',
+            'ts/no-unused-vars': [
+              'error',
+              {
+                argsIgnorePattern: '^_',
+                destructuredArrayIgnorePattern: '^_'
+              }
+            ]
+          }
+        },
+        vue: {
+          overrides: {
+            'vue/comma-dangle': ['error', 'never'],
+            'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+            'vue/custom-event-name-casing': ['error', 'kebab-case'],
+            'vue/define-macros-order': 'off',
+            'vue/html-closing-bracket-newline': 'off',
+            'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
+            'vue/singleline-html-element-content-newline': 'off',
+            'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }]
+          }
+        },
 
         // We are more conservative on curly braces
         // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
@@ -57,28 +89,6 @@ export default function globalbrain(...userConfigs) {
               requireLast: false
             }
           }]
-        }
-      })
-      .override('antfu/typescript/rules', {
-        rules: {
-          'ts/consistent-type-definitions': 'off',
-          'ts/consistent-type-imports': [
-            'error',
-            {
-              prefer: 'type-imports',
-              disallowTypeAnnotations: false,
-              fixStyle: 'inline-type-imports'
-            }
-          ],
-          // Can't enable this rule because it conflicts with our preference of inline type imports.
-          'ts/no-import-type-side-effects': 'off',
-          'ts/no-unused-vars': [
-            'error',
-            {
-              argsIgnorePattern: '^_',
-              destructuredArrayIgnorePattern: '^_'
-            }
-          ]
         }
       })
       .override('antfu/perfectionist/setup', {
@@ -130,18 +140,6 @@ export default function globalbrain(...userConfigs) {
             order: 'asc',
             ignoreCase: false
           }]
-        }
-      })
-      .override('antfu/vue/rules', {
-        rules: {
-          'vue/comma-dangle': ['error', 'never'],
-          'vue/component-name-in-template-casing': ['error', 'PascalCase'],
-          'vue/custom-event-name-casing': ['error', 'kebab-case'],
-          'vue/define-macros-order': 'off',
-          'vue/html-closing-bracket-newline': 'off',
-          'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
-          'vue/singleline-html-element-content-newline': 'off',
-          'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }]
         }
       })
       .override('antfu/node/rules', {

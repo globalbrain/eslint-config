@@ -16,6 +16,7 @@ pnpm add -D eslint @globalbrain/eslint-config
 
 ```js
 import globalbrain from '@globalbrain/eslint-config'
+
 export default globalbrain()
 ```
 
