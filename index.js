@@ -38,7 +38,13 @@ export default function globalbrain(...userConfigs) {
           ],
           'style/comma-dangle': ['error', 'never'],
           // Conflicts with single-line if statements wrapped in curly braces
-          'style/max-statements-per-line': 'off'
+          'style/max-statements-per-line': 'off',
+
+          'style/operator-linebreak': ['error', 'before', {
+            overrides: {
+              '=': 'after'
+            }
+          }]
         }
       })
       .override('antfu/typescript/rules', {
