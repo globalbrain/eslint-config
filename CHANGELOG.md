@@ -1,5 +1,7 @@
 
 
+# [2.0.0](https://github.com/globalbrain/eslint-config/compare/v1.7.1...v2.0.0) (2025-09-04)
+
 ## [1.7.1](https://github.com/globalbrain/eslint-config/compare/v1.7.0...v1.7.1) (2024-08-08)
 
 
