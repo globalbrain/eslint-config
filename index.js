@@ -158,7 +158,11 @@ export default function globalbrain(...userConfigs) {
         rules: {
           // We don't actually care about these stylistic choices
           'test/consistent-test-it': 'off',
-          'test/prefer-lowercase-title': 'off'
+          'test/prefer-lowercase-title': 'off',
+
+          // Don't sort JSON keys or arrays
+          'jsonc/sort-array-values': 'off',
+          'jsonc/sort-keys': 'off',
         }
       })
       .append({
