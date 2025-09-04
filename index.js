@@ -166,7 +166,7 @@ export default function globalbrain(...userConfigs) {
       })
       .append({
         name: 'globalbrain/release-it-config',
-        files: ['**/.release-it.{js,ts}'],
+        files: ['**/.release-it.{js,cjs,mjs,ts,cts,mts}'],
         rules: {
           'no-template-curly-in-string': 'off'
         }
