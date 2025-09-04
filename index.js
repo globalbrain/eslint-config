@@ -44,7 +44,20 @@ export default function globalbrain(...userConfigs) {
             overrides: {
               '=': 'after'
             }
+          }],
+
+          'style/member-delimiter-style': ['error', {
+            multiline: {
+              delimiter: 'none',
+              requireLast: false
+            },
+            multilineDetection: 'brackets',
+            singleline: {
+              delimiter: 'semi',
+              requireLast: false
+            }
           }]
+
         }
       })
       .override('antfu/typescript/rules', {
@@ -168,7 +181,7 @@ export default function globalbrain(...userConfigs) {
 
           // Don't sort JSON keys or arrays
           'jsonc/sort-array-values': 'off',
-          'jsonc/sort-keys': 'off',
+          'jsonc/sort-keys': 'off'
         }
       })
       .append({
