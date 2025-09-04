@@ -12,13 +12,14 @@ pnpm add -D eslint @globalbrain/eslint-config
 
 ### Configuration
 
-#### `.eslintrc`
+#### `eslint.config.js`
 
-```json5
-{
-  "extends": "@globalbrain"
-}
+```js
+import globalbrain from '@globalbrain/eslint-config'
+export default globalbrain()
 ```
+
+The default export of this package is a factory function that accepts an arbitrary number of [ESLint configuration objects](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-objects), which will be merged into the final configuration. It returns a [`FlatConfigComposer` object from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer), allowing you to chain methods for even more flexible configuration composition.
 
 #### `package.json`
 
