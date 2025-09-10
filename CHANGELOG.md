@@ -1,3 +1,13 @@
+
+
+## [2.0.2](https://github.com/globalbrain/eslint-config/compare/v2.0.1...v2.0.2) (2025-09-10)
+
+
+### Bug Fixes
+
+* cover more possible extensions for release-it config ([#45](https://github.com/globalbrain/eslint-config/issues/45)) ([9e670e6](https://github.com/globalbrain/eslint-config/commit/9e670e6292ba18caa3a14f7820e1bd8ca8e9f1e2))
+* re-enable auto-detection for TS and Vue ([#44](https://github.com/globalbrain/eslint-config/issues/44)) ([78e5db1](https://github.com/globalbrain/eslint-config/commit/78e5db15113e1f10ee14cfd39b0bec95ca110eb3))
+
 ## [2.0.1](https://github.com/globalbrain/eslint-config/compare/v2.0.0...v2.0.1) (2025-09-04)
 
 ### Bug Fixes
