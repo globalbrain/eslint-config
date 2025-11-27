@@ -1,4 +1,6 @@
-module.exports = {
+import { type Config } from 'release-it'
+
+export default {
   git: {
     commitMessage: 'release: v${version}',
     tagName: 'v${version}'
@@ -6,7 +8,8 @@ module.exports = {
   github: {
     release: true,
     releaseName: 'v${version}',
-    releaseNotes(context) {
+    // @ts-expect-error broken types
+    releaseNotes(context: { changelog: string }) {
       return context.changelog.split('\n').slice(1).join('\n').trim()
     }
   },
@@ -17,4 +20,4 @@ module.exports = {
       ignoreRecommendedBump: true
     }
   }
-}
+} satisfies Config
