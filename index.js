@@ -35,7 +35,8 @@ export default function globalbrain(...userConfigs) {
               'error',
               {
                 argsIgnorePattern: '^_',
-                destructuredArrayIgnorePattern: '^_'
+                destructuredArrayIgnorePattern: '^_',
+                ignoreRestSiblings: true
               }
             ]
           }
