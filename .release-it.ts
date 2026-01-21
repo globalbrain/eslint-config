@@ -21,6 +21,6 @@ export default {
     }
   },
   hooks: {
-    'before:git:release': ['pnpm build', 'pnpm lint']
+    'after:bump': ['pnpm build', 'pnpm lint']
   }
 } satisfies Config
