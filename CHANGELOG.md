@@ -1,10 +1,29 @@
 # Changelog
 
-# [2.1.0](/compare/v2.0.2...v2.1.0) (2025-11-27)
+# [3.0.0](https://github.com/globalbrain/eslint-config/compare/v2.1.0...v3.0.0) (2026-01-21)
+
+### Features
+
+- add rewrite imports plugin ([ffa40c8](https://github.com/globalbrain/eslint-config/commit/ffa40c8a833f2128fe27bd99d8e7f10298d98f8a)), closes [#37](https://github.com/globalbrain/eslint-config/issues/37)
+- bump antfu's config to v7
+- bump eslint-plugin-perfectionist to v5 and make it a regular dep
+- switch to ts + tsdown
+- disable `unused-imports/no-unused-vars` in favor of `@typescript-eslint/no-unused-vars`, closes [#38](https://github.com/globalbrain/eslint-config/issues/38)
+
+### BREAKING CHANGES
+
+- when chaining the config with `withNuxt`, it will need await:
+
+  ```diff
+  - export default withNuxt(globalbrain())
+  + export default withNuxt(await globalbrain())
+  ```
+
+# [2.1.0](https://github.com/globalbrain/eslint-config/compare/v2.0.2...v2.1.0) (2025-11-27)
 
 ### Bug Fixes
 
-- turn on `ignoreRestSiblings` for `no-unused-vars` (#46) 34b0dcc, closes #46
+- turn on `ignoreRestSiblings` for `no-unused-vars` ([#46](https://github.com/globalbrain/eslint-config/issues/46)) ([34b0dcc](https://github.com/globalbrain/eslint-config/commit/34b0dccc9ee9bd5e1f6bc9edaea50761edeab54a))
 
 ## [2.0.2](https://github.com/globalbrain/eslint-config/compare/v2.0.1...v2.0.2) (2025-09-10)
 
