@@ -179,7 +179,10 @@ export default function globalbrain(
 
           // Don't sort JSON keys or arrays
           'jsonc/sort-array-values': 'off',
-          'jsonc/sort-keys': 'off'
+          'jsonc/sort-keys': 'off',
+
+          'yaml/sort-keys': 'off',
+          'pnpm/yaml-enforce-settings': 'off'
         }
       })
       .append({
