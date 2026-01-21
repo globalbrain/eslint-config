@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1](https://github.com/globalbrain/eslint-config/compare/v3.0.0...v3.0.1) (2026-01-21)
+
+### Bug Fixes
+
+- disable opinionated yaml rules ([e0eeecf](https://github.com/globalbrain/eslint-config/commit/e0eeecf760fe82cf3e62cc54450a0244bc86e624))
+
 # [3.0.0](https://github.com/globalbrain/eslint-config/compare/v2.1.0...v3.0.0) (2026-01-21)
 
 ### Features
