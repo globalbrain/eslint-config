@@ -19,5 +19,8 @@ export default {
       infile: 'CHANGELOG.md',
       ignoreRecommendedBump: true
     }
+  },
+  hooks: {
+    'before:git:release': ['pnpm build', 'pnpm lint']
   }
 } satisfies Config

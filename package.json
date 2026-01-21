@@ -2,40 +2,47 @@
   "name": "@globalbrain/eslint-config",
   "type": "module",
   "version": "2.1.0",
-  "packageManager": "pnpm@10.23.0",
-  "description": "The Global Brain ESLint Config.",
+  "packageManager": "pnpm@10.28.1",
+  "description": "Global Brain's ESLint config",
   "author": "Kia Ishii <ka.ishii@globalbrains.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:globalbrain/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/globalbrain/eslint-config/issues"
+    "url": "git+https://github.com/globalbrain/eslint-config.git"
   },
   "keywords": [
     "eslint",
     "eslint config"
   ],
-  "main": "index.js",
   "files": [
-    "index.js"
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "lint": "eslint --fix .",
+    "build": "tsdown",
     "release": "release-it"
   },
   "peerDependencies": {
-    "eslint": "^9.39.1"
+    "eslint": "^9.39.2"
   },
   "dependencies": {
-    "@antfu/eslint-config": "6.2.0"
+    "@antfu/eslint-config": "7.2.0",
+    "eslint-flat-config-utils": "^3.0.0",
+    "eslint-plugin-perfectionist": "^5.3.1"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^10.0.2",
-    "eslint": "^9.39.1",
-    "eslint-plugin-perfectionist": "^4.15.1",
-    "release-it": "^19.0.6"
+    "@release-it/conventional-changelog": "^10.0.4",
+    "@types/estree": "^1.0.8",
+    "eslint": "^9.39.2",
+    "release-it": "^19.2.4",
+    "tsdown": "^0.20.0-beta.4",
+    "typescript": "^5.9.3"
   },
   "publishConfig": {
     "access": "public",

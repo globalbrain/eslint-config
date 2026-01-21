@@ -1,64 +1,66 @@
-import antfu from '@antfu/eslint-config'
+import antfu, { type ConfigNames, type TypedFlatConfigItem } from '@antfu/eslint-config'
+import { type FlatConfigComposer, type ResolvableFlatConfig } from 'eslint-flat-config-utils'
 import { Alphabet } from 'eslint-plugin-perfectionist/alphabet'
+import rewritePlugin from './plugins/rewrite.js'
 
 /**
- * @typedef {Parameters<typeof antfu>[1]} UserConfig
- * @param {...UserConfig} userConfigs - User-defined ESLint configurations to extend or override
- * @returns {ReturnType<typeof antfu>} A chainable ESLint config
+ * @param userConfigs - User-defined ESLint configurations to extend or override
+ * @returns A chainable ESLint config
  */
-export default function globalbrain(...userConfigs) {
+export default function globalbrain(
+  ...userConfigs: ResolvableFlatConfig[]
+): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
   return (
-    antfu(
-      {
-        // `type: 'lib'` only adds [one rule](https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/typescript.ts#L165-L173),
-        // as our projects are mostly apps, we can just use the default app config,
-        // and either provide a separate config for lib projects,
-        // or manually enable the rule in the projects if needed
+    antfu({
+      // `type: 'lib'` only adds [one rule](https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/typescript.ts#L165-L173),
+      // as our projects are mostly apps, we can just use the default app config,
+      // and either provide a separate config for lib projects,
+      // or manually enable the rule in the projects if needed
 
-        // TS/Vue features are auto-detected,
-        // So we cannot use `.override` to customize their rules (as the configs might not exist).
-        // We have to override them here.
-        typescript: {
-          overrides: {
-            'ts/consistent-type-definitions': 'off',
-            'ts/consistent-type-imports': [
-              'error',
-              {
-                prefer: 'type-imports',
-                disallowTypeAnnotations: false,
-                fixStyle: 'inline-type-imports'
-              }
-            ],
-            // Can't enable this rule because it conflicts with our preference of inline type imports.
-            'ts/no-import-type-side-effects': 'off',
-            'ts/no-unused-vars': [
-              'error',
-              {
-                argsIgnorePattern: '^_',
-                destructuredArrayIgnorePattern: '^_',
-                ignoreRestSiblings: true
-              }
-            ]
-          }
-        },
-        vue: {
-          overrides: {
-            'vue/comma-dangle': ['error', 'never'],
-            'vue/component-name-in-template-casing': ['error', 'PascalCase'],
-            'vue/custom-event-name-casing': ['error', 'kebab-case'],
-            'vue/define-macros-order': 'off',
-            'vue/html-closing-bracket-newline': 'off',
-            'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
-            'vue/singleline-html-element-content-newline': 'off',
-            'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }]
-          }
-        },
+      // TS/Vue features are auto-detected,
+      // So we cannot use `.override` to customize their rules (as the configs might not exist).
+      // We have to override them here.
+      typescript: {
+        overrides: {
+          'ts/consistent-type-definitions': 'off',
+          'ts/consistent-type-imports': [
+            'error',
+            {
+              prefer: 'type-imports',
+              disallowTypeAnnotations: false,
+              fixStyle: 'inline-type-imports'
+            }
+          ],
+          // Can't enable this rule because it conflicts with our preference of inline type imports.
+          'ts/no-import-type-side-effects': 'off',
+          'unused-imports/no-unused-vars': 'off',
+          'ts/no-unused-vars': [
+            'error',
+            {
+              argsIgnorePattern: '^_',
+              destructuredArrayIgnorePattern: '^_',
+              ignoreRestSiblings: true
+            }
+          ]
+        }
+      },
+      vue: {
+        overrides: {
+          'vue/comma-dangle': ['error', 'never'],
+          'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+          'vue/custom-event-name-casing': ['error', 'kebab-case'],
+          'vue/define-macros-order': 'off',
+          'vue/html-closing-bracket-newline': 'off',
+          'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
+          'vue/singleline-html-element-content-newline': 'off',
+          'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }]
+        }
+      },
 
-        // We are more conservative on curly braces
-        // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
-        lessOpinionated: true
-      }
-    )
+      // We are more conservative on curly braces
+      // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
+      lessOpinionated: true
+    })
       .override('antfu/stylistic/rules', {
         rules: {
           'style/arrow-parens': ['error', 'always'],
@@ -100,9 +102,7 @@ export default function globalbrain(...userConfigs) {
             // So we need to set a custom alphabet to sort characters by their char code.
             // Note: this freezes the @eslint/config-inspector page when expanding the `perfectionist` settings,
             // as it generates too many characters.
-            alphabet: Alphabet.generateRecommendedAlphabet()
-              .sortByCharCodeAt()
-              .getCharacters()
+            alphabet: Alphabet.generateRecommendedAlphabet().sortByCharCodeAt().getCharacters()
           }
         },
         rules: {
@@ -188,6 +188,19 @@ export default function globalbrain(...userConfigs) {
           // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
           // A lot of violations in our codebase
           'ts/method-signature-style': 'off'
+        }
+      })
+      .append({
+        name: 'globalbrain/plugins/rewrite',
+        plugins: {
+          rewrite: rewritePlugin
+        },
+        rules: {
+          'rewrite/rewrite-imports': ['error', {
+            paths: [
+              { from: '@globalbrain/sefirot/lib/', to: 'sefirot/' }
+            ]
+          }]
         }
       })
       .append(...userConfigs)
