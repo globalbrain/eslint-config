@@ -1,6 +1,6 @@
 {
   "name": "@globalbrain/eslint-config",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Global Brain's ESLint config",
   "keywords": [
     "eslint",

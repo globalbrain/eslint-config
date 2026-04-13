@@ -1,5 +1,12 @@
 # Changelog
 
+# [3.1.0](https://github.com/globalbrain/eslint-config/compare/v3.0.1...v3.1.0) (2026-04-13)
+
+
+### Features
+
+* **deps:** update base config and fix peer deps issues ([8ad77ca](https://github.com/globalbrain/eslint-config/commit/8ad77ca0ae2204d30caf920337a515a6a525efb3))
+
 ## [3.0.1](https://github.com/globalbrain/eslint-config/compare/v3.0.0...v3.0.1) (2026-01-21)
 
 ### Bug Fixes
