@@ -1,51 +1,55 @@
 {
   "name": "@globalbrain/eslint-config",
-  "type": "module",
   "version": "3.0.1",
-  "packageManager": "pnpm@10.28.1",
   "description": "Global Brain's ESLint config",
-  "author": "Kia Ishii <ka.ishii@globalbrains.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/globalbrain/eslint-config.git"
-  },
   "keywords": [
     "eslint",
     "eslint config"
   ],
+  "license": "MIT",
+  "author": "Kia Ishii <ka.ishii@globalbrains.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/globalbrain/eslint-config.git"
+  },
   "files": [
     "dist"
   ],
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "default": "./dist/index.mjs"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "lint": "eslint --fix .",
     "build": "tsdown",
     "release": "release-it"
   },
-  "peerDependencies": {
-    "eslint": "^9.39.2"
-  },
   "dependencies": {
-    "@antfu/eslint-config": "7.2.0",
-    "eslint-flat-config-utils": "^3.0.0",
-    "eslint-plugin-perfectionist": "^5.3.1"
+    "@antfu/eslint-config": "8.2.0",
+    "@typescript-eslint/rule-tester": "^8.58.1",
+    "@vue/compiler-sfc": "^3.5.32",
+    "eslint-flat-config-utils": "^3.1.0",
+    "eslint-plugin-perfectionist": "^5.8.0"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^10.0.4",
+    "@emnapi/core": "^1.9.2",
+    "@emnapi/runtime": "^1.9.2",
+    "@release-it/conventional-changelog": "^10.0.6",
     "@types/estree": "^1.0.8",
-    "eslint": "^9.39.2",
+    "eslint": "^9.39.4",
     "release-it": "^19.2.4",
-    "tsdown": "^0.20.0-beta.4",
+    "tsdown": "^0.21.7",
     "typescript": "^5.9.3"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  }
+  "peerDependencies": {
+    "eslint": "^9.39.4"
+  },
+  "packageManager": "pnpm@10.33.0"
 }
