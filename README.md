@@ -1,10 +1,12 @@
 # Global Brain: ESLint Config
 
-This package provides the Global Brain eslint preset as an extensible shared config. It is an opinionated extension of [@antfu/eslint-config](https://github.com/antfu/eslint-config).
+Global Brain's shared ESLint configuration, built on top of [`@antfu/eslint-config`](https://github.com/antfu/eslint-config). It provides opinionated defaults with the flexibility to customize them for your project.
 
 ## Usage
 
-### Install
+### Installation
+
+Install ESLint and the shared configuration as development dependencies:
 
 ```bash
 pnpm add -D eslint @globalbrain/eslint-config
@@ -12,7 +14,7 @@ pnpm add -D eslint @globalbrain/eslint-config
 
 ### Configuration
 
-#### `eslint.config.js`
+Create an [`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files) file in your project root:
 
 ```js
 import globalbrain from '@globalbrain/eslint-config'
@@ -20,11 +22,11 @@ import globalbrain from '@globalbrain/eslint-config'
 export default globalbrain()
 ```
 
-The default export of this package is a factory function that accepts an optional options object for `@antfu/eslint-config` as its first argument (defaulting to `{}`), followed by an arbitrary number of [ESLint configuration objects](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-objects), which will be merged into the final configuration. It returns a [`FlatConfigComposer` object from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer), allowing you to chain methods for even more flexible configuration composition.
+### Lint scripts
 
-#### `package.json`
+Add the following scripts to your `package.json`:
 
-```json5
+```json
 {
   "scripts": {
     "lint": "eslint . --fix",
@@ -33,6 +35,41 @@ The default export of this package is a factory function that accepts an optiona
 }
 ```
 
+Run `pnpm lint` to lint your project and apply automatic fixes. Use `pnpm lint:fail` to check for lint errors without modifying files, for example in CI.
+
+## Customization
+
+The `globalbrain()` factory accepts:
+
+- An optional first argument containing options for `@antfu/eslint-config`.
+- Any number of additional [ESLint configuration objects](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-objects), appended after the preset to extend or override its rules.
+
+For example, enable Markdown formatting and add a rule for JavaScript and TypeScript files:
+
+```js
+import globalbrain from '@globalbrain/eslint-config'
+
+export default globalbrain(
+  { formatters: { markdown: true } },
+  {
+    files: ['**/*.{js,ts}'],
+    rules: {
+      'no-console': 'warn'
+    }
+  }
+)
+```
+
+Enabling formatters requires installing [`eslint-plugin-format`](https://github.com/antfu/eslint-plugin-format) as a development dependency:
+
+```bash
+pnpm add -D eslint-plugin-format
+```
+
+See the [`formatters`' documentation](https://github.com/antfu/eslint-config#formatters) for more options.
+
+The factory returns a [`FlatConfigComposer` from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer), so you can also chain methods to further customize the configuration.
+
 ## License
 
-This package is open-sourced software licensed under the [MIT license](./LICENSE).
+Licensed under the [MIT license](./LICENSE).
