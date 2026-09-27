@@ -1,17 +1,32 @@
-import antfu, { type ConfigNames, type TypedFlatConfigItem } from '@antfu/eslint-config'
+import antfu, {
+  type ConfigNames,
+  type OptionsConfig,
+  type TypedFlatConfigItem
+} from '@antfu/eslint-config'
 import { type FlatConfigComposer, type ResolvableFlatConfig } from 'eslint-flat-config-utils'
 import { Alphabet } from 'eslint-plugin-perfectionist/alphabet'
 import rewritePlugin from './plugins/rewrite.js'
 
 /**
+ * @param options - Options to customize the base ESLint configuration
  * @param userConfigs - User-defined ESLint configurations to extend or override
  * @returns A chainable ESLint config
  */
 export default function globalbrain(
+  options: OptionsConfig = {},
   ...userConfigs: ResolvableFlatConfig[]
 ): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
+  const ts = options.typescript === false ? false : typeof options.typescript === 'object' ? options.typescript : {}
+  const vue = options.vue === false ? false : typeof options.vue === 'object' ? options.vue : {}
+
   return (
     antfu({
+      // We are more conservative on curly braces
+      // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
+      lessOpinionated: true,
+
+      ...options,
+
       // `type: 'lib'` only adds [one rule](https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/typescript.ts#L165-L173),
       // as our projects are mostly apps, we can just use the default app config,
       // and either provide a separate config for lib projects,
@@ -20,7 +35,8 @@ export default function globalbrain(
       // TS/Vue features are auto-detected,
       // So we cannot use `.override` to customize their rules (as the configs might not exist).
       // We have to override them here.
-      typescript: {
+      typescript: ts && {
+        ...ts,
         overrides: {
           'ts/consistent-type-definitions': 'off',
           'ts/consistent-type-imports': [
@@ -41,10 +57,12 @@ export default function globalbrain(
               destructuredArrayIgnorePattern: '^_',
               ignoreRestSiblings: true
             }
-          ]
+          ],
+          ...ts.overrides
         }
       },
-      vue: {
+      vue: vue && {
+        ...vue,
         overrides: {
           'vue/comma-dangle': ['error', 'never'],
           'vue/component-name-in-template-casing': ['error', 'PascalCase'],
@@ -53,13 +71,10 @@ export default function globalbrain(
           'vue/html-closing-bracket-newline': 'off',
           'vue/no-useless-v-bind': ['error', { ignoreStringEscape: true }],
           'vue/singleline-html-element-content-newline': 'off',
-          'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }]
+          'vue/v-bind-style': ['error', 'shorthand', { sameNameShorthand: 'always' }],
+          ...vue.overrides
         }
-      },
-
-      // We are more conservative on curly braces
-      // <https://github.com/antfu/eslint-config/blob/0cd12cc90d2100798a5d8f5d51b34753b7be7f70/src/configs/stylistic.ts#L54-L63>
-      lessOpinionated: true
+      }
     })
       .override('antfu/stylistic/rules', {
         rules: {
