@@ -64,34 +64,21 @@ export default function globalbrain(
       .override('antfu/stylistic/rules', {
         rules: {
           'style/arrow-parens': ['error', 'always'],
-          'style/brace-style': [
-            'error',
-            '1tbs',
-            {
-              allowSingleLine: true
-            }
-          ],
+          'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
           'style/comma-dangle': ['error', 'never'],
           // Conflicts with single-line if statements wrapped in curly braces
           'style/max-statements-per-line': 'off',
 
-          'style/operator-linebreak': ['error', 'before', {
-            overrides: {
-              '=': 'after'
-            }
-          }],
+          'style/operator-linebreak': ['error', 'before', { overrides: { '=': 'after' } }],
 
-          'style/member-delimiter-style': ['error', {
-            multiline: {
-              delimiter: 'none',
-              requireLast: false
-            },
-            multilineDetection: 'brackets',
-            singleline: {
-              delimiter: 'semi',
-              requireLast: false
+          'style/member-delimiter-style': [
+            'error',
+            {
+              multiline: { delimiter: 'none', requireLast: false },
+              multilineDetection: 'brackets',
+              singleline: { delimiter: 'semi', requireLast: false }
             }
-          }]
+          ]
         }
       })
       .override('antfu/perfectionist/setup', {
@@ -127,27 +114,17 @@ export default function globalbrain(
               // So we need to overwrite it here.
               internalPattern: ['^@/.+'],
 
-              customGroups: [
-                {
-                  groupName: 'unplugin-icons',
-                  elementNamePattern: '~icons/.*'
-                }
-              ]
+              customGroups: [{ groupName: 'unplugin-icons', elementNamePattern: '~icons/.*' }]
             }
           ],
 
-          'perfectionist/sort-named-imports': ['error', {
-            type: 'custom',
-            order: 'asc',
-            ignoreCase: false
-          }]
+          'perfectionist/sort-named-imports': [
+            'error',
+            { type: 'custom', order: 'asc', ignoreCase: false }
+          ]
         }
       })
-      .override('antfu/node/rules', {
-        rules: {
-          'node/prefer-global/process': 'off'
-        }
-      })
+      .override('antfu/node/rules', { rules: { 'node/prefer-global/process': 'off' } })
       // `antfu/imports/rules` got configured twice in the antfu config,
       // Using only `.override` would not be enough, as the second one would override our changes.
       // So we use `.append` to add our rules after the antfu config.
@@ -155,20 +132,13 @@ export default function globalbrain(
         name: 'globalbrain/imports/rules',
         rules: {
           'import/consistent-type-specifier-style': ['error', 'inline'],
-          'import/no-duplicates': [
-            'error',
-            {
-              'prefer-inline': true
-            }
-          ]
+          'import/no-duplicates': ['error', { 'prefer-inline': true }]
         }
       })
       .append({
         name: 'globalbrain/release-it-config',
         files: ['**/.release-it.{js,cjs,mjs,ts,cts,mts}'],
-        rules: {
-          'no-template-curly-in-string': 'off'
-        }
+        rules: { 'no-template-curly-in-string': 'off' }
       })
       .append({
         name: 'globalbrain/looser-stylistic-rules',
@@ -195,15 +165,12 @@ export default function globalbrain(
       })
       .append({
         name: 'globalbrain/plugins/rewrite',
-        plugins: {
-          rewrite: rewritePlugin
-        },
+        plugins: { rewrite: rewritePlugin },
         rules: {
-          'rewrite/rewrite-imports': ['error', {
-            paths: [
-              { from: '@globalbrain/sefirot/lib/', to: 'sefirot/' }
-            ]
-          }]
+          'rewrite/rewrite-imports': [
+            'error',
+            { paths: [{ from: '@globalbrain/sefirot/lib/', to: 'sefirot/' }] }
+          ]
         }
       })
       .append(...userConfigs)

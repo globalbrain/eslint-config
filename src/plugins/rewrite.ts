@@ -33,22 +33,16 @@ const ruleRewriteImports: Rule.RuleModule = {
               type: 'object',
               additionalProperties: false,
               required: ['from', 'to'],
-              properties: {
-                from: { type: 'string' },
-                to: { type: 'string' }
-              }
+              properties: { from: { type: 'string' }, to: { type: 'string' } }
             }
           }
         }
       }
     ],
-    messages: {
-      rewrite: 'Import specifier \'{{from}}\' is not allowed. Use \'{{to}}\' instead.'
-    }
+    messages: { rewrite: 'Import specifier \'{{from}}\' is not allowed. Use \'{{to}}\' instead.' }
   },
 
   create(context) {
-    const sourceCode = context.sourceCode ?? context.getSourceCode()
     const opt = (context.options?.[0] ?? {}) as Partial<Options[0]>
     const mappings: Mapping[] = Array.isArray(opt.paths) ? opt.paths : []
 
@@ -65,7 +59,7 @@ const ruleRewriteImports: Rule.RuleModule = {
       return null
     }
 
-    const reportAndFix = (sourceNode: unknown) => {
+    const reportAndFix = (sourceNode: Literal) => {
       if (!isStringLiteral(sourceNode)) {
         return
       }
@@ -81,7 +75,7 @@ const ruleRewriteImports: Rule.RuleModule = {
         messageId: 'rewrite',
         data: { from: current, to: next },
         fix(fixer) {
-          const raw = sourceCode.getText(sourceNode)
+          const raw = context.sourceCode.getText(sourceNode)
           const q = quoteFromRaw(raw)
           return fixer.replaceText(sourceNode, `${q}${next}${q}`)
         }
@@ -89,15 +83,15 @@ const ruleRewriteImports: Rule.RuleModule = {
     }
 
     return {
-      ImportDeclaration(node: any) {
+      ImportDeclaration(node) {
         reportAndFix(node.source)
       },
-      ExportNamedDeclaration(node: any) {
+      ExportNamedDeclaration(node) {
         if (node.source) {
           reportAndFix(node.source)
         }
       },
-      ExportAllDeclaration(node: any) {
+      ExportAllDeclaration(node) {
         reportAndFix(node.source)
       }
     }
@@ -105,9 +99,7 @@ const ruleRewriteImports: Rule.RuleModule = {
 }
 
 const plugin: { rules: Record<string, Rule.RuleModule> } = {
-  rules: {
-    'rewrite-imports': ruleRewriteImports
-  }
+  rules: { 'rewrite-imports': ruleRewriteImports }
 }
 
 export default plugin

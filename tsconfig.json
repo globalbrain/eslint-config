@@ -1,11 +1,9 @@
 {
+  "extends": ["@tsconfig/bases/node-lts", "@tsconfig/bases/node-ts", "@tsconfig/bases/strictest"],
   "compilerOptions": {
-    "esModuleInterop": true,
-    "lib": ["es2024"],
-    "module": "nodenext",
-    "moduleResolution": "node16",
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "es2022"
+    "noEmit": true,
+    "declaration": true,
+    "isolatedDeclarations": true,
+    "verbatimModuleSyntax": false // conflicts with our eslint config
   }
 }

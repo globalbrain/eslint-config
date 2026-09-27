@@ -16,40 +16,27 @@
     "dist"
   ],
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "default": "./dist/index.mjs"
-    }
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
+  "exports": "./dist/index.mjs",
   "scripts": {
-    "lint": "eslint --fix .",
-    "build": "tsdown",
-    "release": "release-it"
+    "lint": "eslint . --fix",
+    "build": "tsc && tsdown --dts"
   },
   "dependencies": {
-    "@antfu/eslint-config": "8.2.0",
-    "@typescript-eslint/rule-tester": "^8.58.1",
-    "@vue/compiler-sfc": "^3.5.32",
-    "eslint-flat-config-utils": "^3.1.0",
-    "eslint-plugin-perfectionist": "^5.8.0"
+    "@antfu/eslint-config": "9.5.1",
+    "@vue/compiler-sfc": "^3.5.43",
+    "eslint-flat-config-utils": "^3.2.0",
+    "eslint-plugin-perfectionist": "^5.12.1"
   },
   "devDependencies": {
-    "@emnapi/core": "^1.9.2",
-    "@emnapi/runtime": "^1.9.2",
-    "@release-it/conventional-changelog": "^10.0.6",
-    "@types/estree": "^1.0.8",
-    "eslint": "^9.39.4",
-    "release-it": "^19.2.4",
-    "tsdown": "^0.21.7",
-    "typescript": "^5.9.3"
+    "@tsconfig/bases": "^1.0.28",
+    "@types/estree": "^1.0.9",
+    "@types/node": "^24.19.0",
+    "eslint": "^10.11.0",
+    "tsdown": "^0.23.0",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "eslint": "^9.39.4"
+    "eslint": "^10.11.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@12.6.0"
 }

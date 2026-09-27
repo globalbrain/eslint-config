@@ -1,1 +1,4 @@
 autoInstallPeers: false
+minimumReleaseAgeStrict: true
+strictPeerDependencies: true
+trustPolicy: no-downgrade
