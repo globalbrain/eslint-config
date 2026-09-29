@@ -2,7 +2,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-- support eslint v10
+- Needs ESLint v10.
 
 ### Features
 
