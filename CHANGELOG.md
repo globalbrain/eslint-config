@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/globalbrain/eslint-config/compare/v3.1.0...v4.0.0) (2026-09-29)
+
+### ⚠ BREAKING CHANGES
+
+- support eslint v10
+
+### Features
+
+- support eslint v10 ([9bcf6ac](https://github.com/globalbrain/eslint-config/commit/9bcf6acb00dc0c44d406869216432dd5508bedba))
+- support passing base options ([4b152c2](https://github.com/globalbrain/eslint-config/commit/4b152c21669eae38b52f7e9fc7a3bd9bc887df92))
+
 ## [3.1.0](https://github.com/globalbrain/eslint-config/compare/v3.0.1...v3.1.0) (2026-04-13)
 
 ### Features
