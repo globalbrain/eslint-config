@@ -18,8 +18,9 @@
   "type": "module",
   "exports": "./dist/index.mjs",
   "scripts": {
+    "build": "tsc && tsdown --dts",
     "lint": "eslint . --fix",
-    "build": "tsc && tsdown --dts"
+    "lint:fail": "eslint ."
   },
   "dependencies": {
     "@antfu/eslint-config": "9.5.1",

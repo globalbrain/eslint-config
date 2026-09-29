@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths: [deno.json, package.json]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: patch, minor, major, prepatch, preminor, premajor, prerelease, or an explicit version
+        required: true
+        type: string
+
+concurrency: release
+
+jobs:
+  release:
+    if: github.repository == 'globalbrain/eslint-config'
+    uses: globalbrain/hado/.github/workflows/release.reusable.yaml@d15b0506fe3a2e0734562439b5d30853110138e8 # v0.22.0
+    with:
+      version: ${{ inputs.version }}
+    permissions:
+      contents: write
+      pull-requests: write
+
+  publish:
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: https://npmx.dev/package/@globalbrain/eslint-config/v/${{ needs.release.outputs.version }}
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    steps:
+      - uses: globalbrain/hado/.github/actions/wait@d15b0506fe3a2e0734562439b5d30853110138e8 # v0.22.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
+        with:
+          runtime: node
+          cache: false
+      - run: pnpm build && pnpm publish --access public
