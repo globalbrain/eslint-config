@@ -3,5 +3,6 @@
 import globalbrain from '@globalbrain/eslint-config'
 
 export default globalbrain({
-  formatters: { markdown: true }
+  formatters: { markdown: true },
+  ignores: ['!CHANGELOG.md']
 })

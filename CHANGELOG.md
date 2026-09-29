@@ -1,11 +1,8 @@
-# Changelog
-
-# [3.1.0](https://github.com/globalbrain/eslint-config/compare/v3.0.1...v3.1.0) (2026-04-13)
-
+## [3.1.0](https://github.com/globalbrain/eslint-config/compare/v3.0.1...v3.1.0) (2026-04-13)
 
 ### Features
 
-* **deps:** update base config and fix peer deps issues ([8ad77ca](https://github.com/globalbrain/eslint-config/commit/8ad77ca0ae2204d30caf920337a515a6a525efb3))
+- **deps:** update base config and fix peer deps issues ([8ad77ca](https://github.com/globalbrain/eslint-config/commit/8ad77ca0ae2204d30caf920337a515a6a525efb3))
 
 ## [3.0.1](https://github.com/globalbrain/eslint-config/compare/v3.0.0...v3.0.1) (2026-01-21)
 
@@ -13,17 +10,9 @@
 
 - disable opinionated yaml rules ([e0eeecf](https://github.com/globalbrain/eslint-config/commit/e0eeecf760fe82cf3e62cc54450a0244bc86e624))
 
-# [3.0.0](https://github.com/globalbrain/eslint-config/compare/v2.1.0...v3.0.0) (2026-01-21)
+## [3.0.0](https://github.com/globalbrain/eslint-config/compare/v2.1.0...v3.0.0) (2026-01-21)
 
-### Features
-
-- add rewrite imports plugin ([ffa40c8](https://github.com/globalbrain/eslint-config/commit/ffa40c8a833f2128fe27bd99d8e7f10298d98f8a)), closes [#37](https://github.com/globalbrain/eslint-config/issues/37)
-- bump antfu's config to v7
-- bump eslint-plugin-perfectionist to v5 and make it a regular dep
-- switch to ts + tsdown
-- disable `unused-imports/no-unused-vars` in favor of `@typescript-eslint/no-unused-vars`, closes [#38](https://github.com/globalbrain/eslint-config/issues/38)
-
-### BREAKING CHANGES
+### ⚠ BREAKING CHANGES
 
 - when chaining the config with `withNuxt`, it will need await:
 
@@ -32,7 +21,13 @@
   + export default withNuxt(await globalbrain())
   ```
 
-# [2.1.0](https://github.com/globalbrain/eslint-config/compare/v2.0.2...v2.1.0) (2025-11-27)
+### Features
+
+- add rewrite imports plugin ([ffa40c8](https://github.com/globalbrain/eslint-config/commit/ffa40c8a833f2128fe27bd99d8e7f10298d98f8a)), closes [#37](https://github.com/globalbrain/eslint-config/issues/37)
+- bump antfu's config to v7
+- bump eslint-plugin-perfectionist to v5 and make it a regular dep
+- switch to ts + tsdown
+- disable `unused-imports/no-unused-vars` in favor of `@typescript-eslint/no-unused-vars`, closes [#38](https://github.com/globalbrain/eslint-config/issues/38)
 
 ### Bug Fixes
 
@@ -53,7 +48,17 @@
 - adjust linebreak rule for `=` ([#43](https://github.com/globalbrain/eslint-config/issues/43)) ([725746d](https://github.com/globalbrain/eslint-config/commit/725746d32885b9ff7f47c2cc47e1a5b4ffd6a5bf))
 - use semi as delimiter for single line type members ([#43](https://github.com/globalbrain/eslint-config/issues/43)) ([725746d](https://github.com/globalbrain/eslint-config/commit/725746d32885b9ff7f47c2cc47e1a5b4ffd6a5bf))
 
-# [2.0.0](https://github.com/globalbrain/eslint-config/compare/v1.7.1...v2.0.0) (2025-09-04)
+## [2.0.0](https://github.com/globalbrain/eslint-config/compare/v1.7.1...v2.0.0) (2025-09-04)
+
+### ⚠ BREAKING CHANGES
+
+- Requires ESLint 9.33.0 or later.
+- Dropped `.eslintrc*` support. Only available as a flat config now.
+- Updated to `@antfu/eslint-config` from 0.41.0 to 5.2.1, so a lot of rules have changed.
+
+### Features
+
+- migrate to flat config ([#34](https://github.com/globalbrain/eslint-config/issues/34)) ([#41](https://github.com/globalbrain/eslint-config/issues/41)) ([acd5293](https://github.com/globalbrain/eslint-config/commit/acd5293883679e037d3c9690bb35c788dd02baec))
 
 ## [1.7.1](https://github.com/globalbrain/eslint-config/compare/v1.7.0...v1.7.1) (2024-08-08)
 
@@ -61,13 +66,13 @@
 
 - move imports beginning with tilde to very top ([a5060ae](https://github.com/globalbrain/eslint-config/commit/a5060aee875e2fc794a5a569b66a02cac741b57a))
 
-# [1.7.0](https://github.com/globalbrain/eslint-config/compare/v1.6.0...v1.7.0) (2024-08-08)
+## [1.7.0](https://github.com/globalbrain/eslint-config/compare/v1.6.0...v1.7.0) (2024-08-08)
 
 ### Features
 
 - group imports beginning with tilde with externals ([#36](https://github.com/globalbrain/eslint-config/issues/36)) ([79512d4](https://github.com/globalbrain/eslint-config/commit/79512d45b2453abd570db23bf0c7bedcecd2fcfa))
 
-# [1.6.0](https://github.com/globalbrain/eslint-config/compare/v1.5.2...v1.6.0) (2024-03-27)
+## [1.6.0](https://github.com/globalbrain/eslint-config/compare/v1.5.2...v1.6.0) (2024-03-27)
 
 ### Features
 
@@ -75,7 +80,7 @@
 
 ## [1.5.2](https://github.com/globalbrain/eslint-config/compare/v1.5.1...v1.5.2) (2023-09-06)
 
-### Bug Fixes
+### Features
 
 - **vue:** allow v-bind string escaping ([#24](https://github.com/globalbrain/eslint-config/issues/24)) ([#26](https://github.com/globalbrain/eslint-config/issues/26)) ([1e8e9fc](https://github.com/globalbrain/eslint-config/commit/1e8e9fc36707505f7665b6073d3c4aabf6f97507))
 
@@ -83,21 +88,21 @@
 
 ### Bug Fixes
 
-- ESLint >= 8.40.0 brakes `vue/comma-dangle` rule ([#20](https://github.com/globalbrain/eslint-config/issues/20))
+- ESLint >= 8.40.0 breaks `vue/comma-dangle` rule ([#20](https://github.com/globalbrain/eslint-config/issues/20))
 
-# [1.5.0](https://github.com/globalbrain/eslint-config/compare/v1.3.0...v1.5.0) (2023-04-28)
+## [1.5.0](https://github.com/globalbrain/eslint-config/compare/v1.4.0...v1.5.0) (2023-04-28)
 
 ### Features
 
 - enforce consistent inline type imports ([#18](https://github.com/globalbrain/eslint-config/issues/18)) ([#19](https://github.com/globalbrain/eslint-config/issues/19)) ([57b4705](https://github.com/globalbrain/eslint-config/commit/57b47055ca881afa4b211d9fb77b6f944c41671a))
 
-# [1.4.0](https://github.com/globalbrain/eslint-config/compare/v1.3.0...v1.4.0) (2023-04-18)
+## [1.4.0](https://github.com/globalbrain/eslint-config/compare/v1.3.0...v1.4.0) (2023-04-18)
 
 ### Features
 
 - update npm packages that adds several new rules ([#17](https://github.com/globalbrain/eslint-config/pull/17))
 
-# [1.3.0](https://github.com/globalbrain/eslint-config/compare/v1.2.1...v1.3.0) (2023-02-17)
+## [1.3.0](https://github.com/globalbrain/eslint-config/compare/v1.2.1...v1.3.0) (2023-02-17)
 
 ### Features
 
@@ -110,19 +115,19 @@
 
 - "max statements per line" rule is some how applied ([5d6178e](https://github.com/globalbrain/eslint-config/commit/5d6178e21d0e6519a42ef7f15a27e671507a9655))
 
-# [1.2.0](https://github.com/globalbrain/eslint-config/compare/v1.1.0...v1.2.0) (2023-01-08)
+## [1.2.0](https://github.com/globalbrain/eslint-config/compare/v1.1.0...v1.2.0) (2023-01-08)
 
 ### Features
 
 - add typescript rules ([#8](https://github.com/globalbrain/eslint-config/issues/8)) ([ba97269](https://github.com/globalbrain/eslint-config/commit/ba97269c44dd402c251b9319fe389d0e00beef13))
 
-# [1.1.0](https://github.com/globalbrain/eslint-config/compare/v1.0.0...v1.1.0) (2022-11-22)
+## [1.1.0](https://github.com/globalbrain/eslint-config/compare/v1.0.0...v1.1.0) (2022-11-22)
 
 ### Features
 
 - enforce one true brace style ([#4](https://github.com/globalbrain/eslint-config/issues/4)) ([#5](https://github.com/globalbrain/eslint-config/issues/5)) ([9996dbe](https://github.com/globalbrain/eslint-config/commit/9996dbeff86d81d157505d7175ccdca59e2b35f8))
 
-# [1.0.0](https://github.com/globalbrain/eslint-config/compare/v0.1.0...v1.0.0) (2022-11-09)
+## [1.0.0](https://github.com/globalbrain/eslint-config/compare/v0.1.0...v1.0.0) (2022-11-09)
 
 ### Features
 
