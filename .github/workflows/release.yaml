@@ -16,29 +16,15 @@ concurrency: release
 jobs:
   release:
     if: github.repository == 'globalbrain/eslint-config'
-    uses: globalbrain/hado/.github/workflows/release.reusable.yaml@d15b0506fe3a2e0734562439b5d30853110138e8 # v0.22.0
+    uses: globalbrain/hado/.github/workflows/release.reusable.yaml@b85b1b491ddaacce3cec12c06e8d563b44b5b38a # v0.22.8
     with:
       version: ${{ inputs.version }}
-    permissions:
-      contents: write
-      pull-requests: write
-
-  publish:
-    needs: release
-    if: needs.release.outputs.released == 'true'
-    runs-on: ubuntu-latest
-    environment:
-      name: npm
-      url: https://npmx.dev/package/@globalbrain/eslint-config/v/${{ needs.release.outputs.version }}
+      setup: pnpm build
+      publish: pnpm publish --access public
+      environment: npm
+      environment_url: https://npmx.dev/package/@globalbrain/eslint-config/v/{0}
     permissions:
       actions: read
-      contents: read
+      contents: write
       id-token: write
-    steps:
-      - uses: globalbrain/hado/.github/actions/wait@d15b0506fe3a2e0734562439b5d30853110138e8 # v0.22.0
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
-        with:
-          runtime: node
-          cache: false
-      - run: pnpm build && pnpm publish --access public
+      pull-requests: write
