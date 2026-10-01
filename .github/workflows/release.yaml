@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches: [main]
-    paths: [deno.json, package.json]
+    paths: [package.json, .github/workflows/release.yaml]
   workflow_dispatch:
     inputs:
       version:
@@ -16,7 +16,7 @@ concurrency: release
 jobs:
   release:
     if: github.repository == 'globalbrain/eslint-config'
-    uses: globalbrain/hado/.github/workflows/release.reusable.yaml@b85b1b491ddaacce3cec12c06e8d563b44b5b38a # v0.22.8
+    uses: globalbrain/hado/.github/workflows/release.reusable.yaml@556458ffbe94c080414cd22a7d905cb9fa2c81cc # v0.22.10
     with:
       version: ${{ inputs.version }}
       setup: pnpm build
